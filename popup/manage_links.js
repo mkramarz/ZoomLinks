@@ -40,8 +40,9 @@ function uniqueID() { //This could be improved, but is good enough for a small s
 function addRow(name, link, newEntry) {
     /**
      * Creates a new row in the popup table, and optionally adds this new row to extension storage.
-     * @param {[string]} name The name for the new link.
+     * @param {string} name The name for the new link.
      * @param {string} link The Zoom link that will be linked to.
+     * @param {boolean} newEntry Whether or not the row to be added is a new entry (i.e. exists in memory).
      * @returns {void}
      */
 
