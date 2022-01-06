@@ -50,7 +50,6 @@ function addRow(name, link, newEntry) {
     var table = document.getElementById("linkTable");
     var row = table.insertRow(-1);
     var rowID = uniqueID();
-    console.log(rowID);
     row.id = rowID;
     var nameCell = row.insertCell(-1);
     var linkCell = row.insertCell(-1);
@@ -85,7 +84,6 @@ function removeRow(name, id) {
      * @returns {void}
      */
 
-    console.log("what the shit");
     var row = document.getElementById(id); //Remove from table first
     row.parentNode.removeChild(row);
 
