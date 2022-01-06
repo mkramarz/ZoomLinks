@@ -1,0 +1,17 @@
+{
+    "description": "Adds a menu in-browser for managing your zoom links in one place.",
+    "manifest_version": 2,
+    "name": "Zoom Link Manager",
+    "version": "1.0",
+    
+    "permissions": [
+        "activeTab",
+        "storage"
+    ],
+
+    "browser_action": {
+        "default_title": "Zoom Links",
+        "default_popup": "popup/manage_links.html",
+        "browser_style": true
+    }
+}
