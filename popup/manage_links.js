@@ -1,7 +1,3 @@
-// //Add a listener to the "create new link" button
-// var linkButton = document.getElementById("newLink");
-// linkButton.addEventListener("click", onSubmit);
-
 //Sync with persistent storage
 const storedPairs = [];
 
@@ -12,6 +8,8 @@ storedItem.then((res) => {
         addRow(pair[0], pair[1], false); //Then re-add them to the table
     }
 });
+
+//Add the relevant listeners for editing the table and opening/closing the new link dialogue
 
 var newLinkBox = document.getElementById("newLinkBox");
 var newLinkButton = document.getElementById("newLink");
