@@ -4,6 +4,10 @@
     "name": "Zoom Link Manager",
     "version": "1.0",
     
+    "icons": {
+        "48": "icons/icon.png"
+    },
+
     "permissions": [
         "activeTab",
         "storage"
