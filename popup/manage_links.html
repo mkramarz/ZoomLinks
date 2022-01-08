@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <table id="linkTable">
-            <tr>
-                <th>Name</th>
-                <th>Link</th>
-                <th>Remove</th>
-            </tr>
-        </table>
-        
-        <form id="newLinkForm">
-            <label for="name">Name:</label><br>
-            <input type="text" id="name" name="name"><br>
-            <label for="link">Link</label><br>
-            <input type="text" id="link" name="link"><br>
-        </form>
-        <button id="newLink">New Link</button>
+        <h3>Zoom Links</h3>
+        <table id="linkTable"></table>
+
+        <button id="newLink">Add New</button>
+        <div id="newLinkBox" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form id="newLinkForm">
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name"><br>
+                    <label for="link">Link</label><br>
+                    <input type="text" id="link" name="link"><br>
+                </form>
+                <button id="addLink">New Link</button>
+            </div>
+        </div>
+
         <script src="manage_links.js"></script> 
+        <link rel="stylesheet" href="manage_links.css">
     </body>
 </html> 

@@ -1,6 +1,6 @@
-//Add a listener to the "create new link" button
-var linkButton = document.getElementById("newLink");
-linkButton.addEventListener("click", onSubmit);
+// //Add a listener to the "create new link" button
+// var linkButton = document.getElementById("newLink");
+// linkButton.addEventListener("click", onSubmit);
 
 //Sync with persistent storage
 const storedPairs = [];
@@ -13,6 +13,27 @@ storedItem.then((res) => {
     }
 });
 
+var newLinkBox = document.getElementById("newLinkBox");
+var newLinkButton = document.getElementById("newLink");
+var closeButton = document.getElementsByClassName("close")[0];
+var addLinkButton = document.getElementById("addLink");
+
+newLinkButton.addEventListener("click", () => {
+    newLinkBox.style.display = "block";
+});
+
+closeButton.addEventListener("click", () => {
+    newLinkBox.style.display = "none";
+});
+
+window.addEventListener("click", (event) => {
+    if (event.target == newLinkBox) {
+        newLinkBox.style.display = "none";
+    }
+});
+
+addLinkButton.addEventListener("click", onSubmit);
+
 function onSubmit() {
     /**
      * Called when a new row is created via the popup interface, it calls addRow(), then clears the form.
@@ -21,7 +42,8 @@ function onSubmit() {
 
     var name = document.getElementById("name").value;
     var link = document.getElementById("link").value;
-    document.getElementById("newLinkForm").reset(); //Clear form then call addRow with arguments
+    document.getElementById("newLinkForm").reset(); //Clear form, close box, then call addRow with arguments
+    newLinkBox.style.display = "none";
     addRow(name, link, true);
 }
 
@@ -64,8 +86,12 @@ function addRow(name, link, newEntry) {
     joinLink.href = link;
     joinLink.target = "_blank"
     linkCell.appendChild(joinLink);
-    removeCell.innerHTML = "X"; //Create a button that will remove the row if clicked on
-    removeCell.addEventListener("click", () => {removeRow(name, rowID)});
+    var removeButton = document.createElement("img");
+    removeButton.src = "/icons/alt_remove.png";
+    removeButton.style.height = "18px";
+    removeButton.style.width = "18px";
+    removeCell.appendChild(removeButton);
+    removeButton.addEventListener("click", () => {removeRow(name, rowID)});
 
     //Add the new link to memory only if it is a new entry
     if (newEntry) {
