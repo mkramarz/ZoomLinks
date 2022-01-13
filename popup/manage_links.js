@@ -26,24 +26,18 @@ closeButton.addEventListener("click", () => {
 
 window.addEventListener("click", (event) => {
     if (event.target == newLinkBox) {
+        document.getElementById("newLinkForm").reset();
         newLinkBox.style.display = "none";
     }
 });
 
-addLinkButton.addEventListener("click", onSubmit);
-
-function onSubmit() {
-    /**
-     * Called when a new row is created via the popup interface, it calls addRow(), then clears the form.
-     * @returns {void}
-     */
-
+addLinkButton.addEventListener("click", () => {
     var name = document.getElementById("name").value;
     var link = document.getElementById("link").value;
     document.getElementById("newLinkForm").reset(); //Clear form, close box, then call addRow with arguments
     newLinkBox.style.display = "none";
     addRow(name, link, true);
-}
+});
 
 function uniqueID() { //This could be improved, but is good enough for a small set of rows
     /**
